@@ -9,7 +9,7 @@ import express from "express";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const port = 7000;
+const port = process.env.EXPRESS_PORT;
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, "..", "views"));
@@ -24,7 +24,6 @@ app.use("/public", express.static(path.join(__dirname, "..", "public"), {
 
 // Endpoints
 app.get("/", (_, res) => {
-  console.log(discord.isCustomGame());
   res.render('home', {
     layout: false, 
     skinNumber: parseInt(Math.random() * (5 - 1) + 1), 
