@@ -63,8 +63,8 @@ client.on('presenceUpdate', (oldPresence, newPresence) => {
     return;
   }
   fortniteActivity = newPresence.activities.find(isFortnite);
-  console.log("FORTNITE:", fortniteActivity);
   if (fortniteActivity && getLobbyDetails()) {
+    console.log(fortniteActivity);
     lastSeenEpoch = fortniteActivity.createdTimestamp;
   }
 });
