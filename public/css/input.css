@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Fortnite";
+        src: url("../assets/fonts/fortnite-font.otf") format("opentype");
+    }
+    .text-outline-0-5 {
+        -webkit-text-stroke: .5px white;
+    }
+    .text-outline-1 {
+        -webkit-text-stroke: 1px white;
+    }
+    .text-outline-1-5 {
+        -webkit-text-stroke: 1.5px white;
+    }
+    .text-outline-2 {
+        -webkit-text-stroke: 2px white;
+    }
+    .text-outline-4 {
+        -webkit-text-stroke: 4px white;
+    }
+}

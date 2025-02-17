@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is My Brother Playing Fortnite?</title>
+    <link rel="icon" type="image/x-icon" href="./public/assets/images/icon.png">
+    <link href="/public/css/output.css" rel="stylesheet">
+  </head>
+
+  <body class="flex items-center justify-center h-screen bg-zinc-900">
+    <div id="particles-js" class="absolute z-0 w-screen h-screen"></div>
+    <main class="flex flex-wrap items-center z-10 m-10 p-6 md:p-8 rounded-3xl shadow-xl shadow-purple-700 bg-fortnite-sunset bg-cover">
+      <div class="flex justify-center flex-none size-64 mr-0 mb-8 sm:mb-0 md:mb-0 sm:mr-8 md:mr-16 basis-full md:basis-auto">
+        <div class="bg-cyan-200 rounded-full size-64 fixed mix-blend-overlay"></div>
+        <img class="rounded-full size-64 border-solid border-2 relative top-0" src="./public/assets/images/skin-{{skinNumber}}.webp">
+      </div>
+      <div class="flex-1">
+        {{#if isPlayingFortnite }}
+          <h2 style="text-shadow: 5px 5px #558abb;" class="text-blue-400 text-8xl text-outline-1 font-fortnite">Online</h2>
+          <h3 class="text-blue-400 text-outline-0-5 text-5xl font-fortnite mix-blend-hard-light">
+            {{ lobbyState }}
+            {{#if lobbyState }}
+             - 
+            {{else}}
+              {{#if isCustomMode }}
+                Custom - 
+              {{/if}}
+            {{/if}}
+            {{ lobbyDetails }}
+          </h3>
+        {{else}}
+          <h2 style="text-shadow: 5px 5px #363636;" class="text-gray-600 text-8xl text-outline-1 font-fortnite mix-blend-hard-light">Offline</h2>
+          {{#if timeSinceLastSeen }}
+            <h3 class="text-red-400 text-outline-1 mix-blend-lighten text-5xl font-fortnite max-w-72">Last seen {{ timeSinceLastSeen }} ago</h3>
+          {{else}}
+            <h3 class="text-red-400 text-outline-1 mix-blend-lighten text-5xl font-fortnite max-w-72">Last seen N/A hours ago</h3>
+          {{/if}}
+        {{/if}}
+      </div>
+    </main>
+  </body>
+
+  <script src="/particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', './public/config/particles.json', function() {
+      console.log('particles.json loaded...');
+    });
+    setInterval("location.reload(true);", 60000);  // why add a frontend fw when you can just reload
+  </script>
+</html>
