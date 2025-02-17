@@ -35,6 +35,7 @@ export function isCustomGame() {
 }
 
 export function getTimeSinceLastSeen() {
+  if (!lastSeenEpoch) return undefined;
   const now = Date.now();
   const diffInSeconds = Math.floor((now - lastSeenEpoch) / 1000);
   const units = [
