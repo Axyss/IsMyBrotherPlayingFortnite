@@ -1,4 +1,5 @@
 import { Client, GatewayIntentBits } from "discord.js";
+import "dotenv/config";
 
 
 const fortniteId = "432980957394370572";
