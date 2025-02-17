@@ -67,4 +67,4 @@ client.on('presenceUpdate', (oldPresence, newPresence) => {
   }
 });
 
-client.login("MTMzMjEwNDQ2MjIwNTk3NjY0Nw.GB3GNp.RaV_4Yh6pQ69ZZ5FNrn6LQAcxPxxbl4_jWPeEo");
+client.login(process.env.DISCORD_TOKEN);
