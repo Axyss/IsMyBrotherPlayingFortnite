@@ -10,7 +10,7 @@
 
   <body class="flex items-center justify-center h-screen bg-zinc-900">
     <div id="particles-js" class="absolute z-0 w-screen h-screen"></div>
-    <main class="flex flex-wrap items-center z-10 m-10 p-6 md:p-8 rounded-3xl shadow-xl shadow-purple-700 bg-fortnite-sunset bg-cover">
+    <main class="flex flex-wrap relative items-center z-10 m-10 p-6 md:p-8 rounded-3xl shadow-xl shadow-purple-700 bg-fortnite-sunset bg-cover">
       <div class="flex justify-center flex-none size-64 mr-0 mb-8 sm:mb-0 md:mb-0 sm:mr-8 md:mr-16 basis-full md:basis-auto">
         <div class="bg-cyan-200 rounded-full size-64 fixed mix-blend-overlay"></div>
         <img class="rounded-full size-64 border-solid border-2 relative top-0" src="./public/assets/images/skin-{{skinNumber}}.webp">
@@ -37,6 +37,13 @@
             <h3 class="text-red-400 text-outline-1 mix-blend-lighten text-5xl font-fortnite max-w-72">Last seen N/A hours ago</h3>
           {{/if}}
         {{/if}}
+      </div>
+      <!-- New -->
+      <div class="absolute top-0 left-0 md:top-auto md:left-auto md:right-0 md:bottom-0 float-right rounded-br-3xl rounded-tl-3xl bg-gray-700 mix-blend-hard-light h-8 sm:h-10 w-32 sm:w-40 z-30">
+      </div>
+      <div class="flex items-center justify-start absolute top-0 left-0 md:top-auto md:left-auto md:right-0 md:bottom-0 rounded-br-3xl rounded-tl-3xl h-8 sm:h-10 w-32 sm:w-40 px-3 py-0.5 gap-2 z-30">
+        <img class="h-full" src="./public/assets/images/battle-pass-logo.webp">
+        <span style="text-shadow: 2px 2px #999999;" class="text-white text-2xl sm:text-4xl mt-1 sm:mt-2 font-fortnite">Lv. 445</span>
       </div>
     </main>
   </body>
