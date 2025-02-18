@@ -28,6 +28,7 @@ app.get("/", (_, res) => {
     layout: false, 
     skinNumber: parseInt(Math.random() * (5 - 1) + 1), 
     isPlayingFortnite: discord.isPlayingFortnite(),
+    fortniteLevel: discord.fortniteLevel,
     isCustomMode: discord.isCustomGame(),
     lobbyState: discord.getLobbyState(),
     lobbyDetails: discord.getLobbyDetails(),

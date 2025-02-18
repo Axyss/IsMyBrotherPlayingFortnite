@@ -1,4 +1,5 @@
 import { Client, GatewayIntentBits } from "discord.js";
+import axios from "axios";
 import "dotenv/config";
 
 
@@ -6,7 +7,9 @@ const fortniteId = "432980957394370572";
 const brotherId = "302890346365583361";
 let isFortnite = (activity) => activity.applicationId == fortniteId;
 let fortniteActivity = undefined;
-let lastSeenEpoch = undefined
+let lastSeenEpoch = undefined;
+export let fortniteLevel = 1;
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -53,12 +56,27 @@ export function getTimeSinceLastSeen() {
   return `${diffInSeconds} seconds`;
 }
 
+async function getFortniteLevel() {
+  try {
+    const response = await axios.get("https://fortnite-api.com/v2/stats/br/v2/d1b9a96439154b22b1b74c51e59519d8", {
+      headers: {
+        Authorization: process.env.FORTNITE_API_TOKEN,
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.data.data.battlePass.level;
+  } catch (error) {
+    console.error('Error:', error.response ? error.response.data : error.message);
+  }
+};
+
 // Discord events
-client.once('ready', () => {
+client.once('ready', async () => {
   console.log(`Logged in as ${client.user.tag}`);
+  fortniteLevel = await getFortniteLevel();
 });
 
-client.on('presenceUpdate', (oldPresence, newPresence) => {
+client.on('presenceUpdate', async (oldPresence, newPresence) => {
   if (newPresence.userId != brotherId) {
     return;
   }
@@ -66,6 +84,7 @@ client.on('presenceUpdate', (oldPresence, newPresence) => {
   if (fortniteActivity && getLobbyDetails()) {
     console.log(fortniteActivity);
     lastSeenEpoch = fortniteActivity.createdTimestamp;
+    fortniteLevel = await getFortniteLevel();
   }
 });
 
