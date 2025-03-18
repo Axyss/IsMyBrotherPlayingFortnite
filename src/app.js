@@ -31,7 +31,7 @@ app.get("/", (_, res) => {
     fortniteLevel: discord.fortniteLevel,
     isCustomMode: discord.isCustomGame(),
     lobbyState: discord.getLobbyState(),
-    lobbyDetails: discord.getLobbyDetails(),
+    lobbyDetails: discord.getLobbyDetails() == undefined ? undefined : discord.getLobbyDetails().replace("Joinable Game -", ""),
     timeSinceLastSeen: discord.getTimeSinceLastSeen()
   });
 })

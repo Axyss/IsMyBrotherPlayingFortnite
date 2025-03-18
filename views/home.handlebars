@@ -25,15 +25,7 @@
         {{#if isPlayingFortnite }}
           <h2 style="text-shadow: 5px 5px #558abb;" class="text-blue-400 text-8xl text-outline-1 font-fortnite">Online</h2>
           <h3 class="text-blue-400 text-outline-0-5 text-5xl font-fortnite mix-blend-hard-light">
-            {{ lobbyState }}
-            {{#if lobbyState }}
-             - 
-            {{else}}
-              {{#if isCustomMode }}
-                Custom - 
-              {{/if}}
-            {{/if}}
-            {{ lobbyDetails }}
+            Playing {{ lobbyDetails }}
           </h3>
         {{else}}
           <h2 style="text-shadow: 5px 5px #363636;" class="text-gray-600 text-8xl text-outline-1 font-fortnite mix-blend-hard-light">Offline</h2>

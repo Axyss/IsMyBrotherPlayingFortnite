@@ -23,7 +23,7 @@ export function getLobbyDetails() {
   if (!isPlayingFortnite() || !fortniteActivity.details) {
     return undefined;
   }
-  return fortniteActivity.details.split(" - ")[1];
+  return fortniteActivity.details;
 }
 
 export function getLobbyState() {
