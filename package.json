@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css",
+    "build": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
     "watch": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
     "live": "nodemon --delay 500ms src/server.js"
   },
